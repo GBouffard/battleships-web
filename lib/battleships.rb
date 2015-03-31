@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative 'player'
 
 class Battleships < Sinatra::Base
   set :views, Proc.new { File.join(root, "..", "views") }
@@ -9,6 +10,7 @@ class Battleships < Sinatra::Base
 
   get '/game' do
     @visitor = params[:player]
+    @player = Player.new @visitor
     erb :game
   end
 
