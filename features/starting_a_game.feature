@@ -7,5 +7,6 @@ Feature: Starting the game
     Given I am on the homepage
     Then I should see "What's your name?"
     When I press "Start Game"
+    Then I should see "Hello"
 
 
