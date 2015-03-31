@@ -24,6 +24,14 @@ class Battleships < Sinatra::Base
     erb :game
   end
 
+  get '/hit' do
+    @visitor = params[:player]
+    @player = Player.new @visitor
+    @board = Board.new({size: 25, cell: Cell, number_of_pieces: 3})
+    @ship = Ship.new({size: 3})
+    erb :hit
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
