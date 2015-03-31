@@ -2,10 +2,10 @@
   Hello <%= @player.name %>
   Your board: <%= @board.grid.to_s %>
 
-  <% (0..@board.side_length - 1).each do |row| %>
+  <% (1..@board.side_length).each do |row| %>
   <p>
-    <% (0..@board.side_length - 1).each do |column| %>
-      <%= (row+65).chr %><%= column %>
+    <% (1..@board.side_length).each do |column| %>
+      <%= (row+64).chr %><%= column %>
     <% end %>
   </p>
   <% end %>
