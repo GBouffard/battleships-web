@@ -1,16 +1,12 @@
 <div>
   Hello <%= @player.name %>
   Your board: <%= @board.grid.to_s %>
-</div>
 
-<div>
-  <table border="2">
-    <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-      <td>Cell 3</td>
-      <td>Cell 4</td>
-      <td>Cell 5</td>
-    </tr>
-  </table>
+  <% (0..@board.side_length - 1).each do |row| %>
+  <p>
+    <% (0..@board.side_length - 1).each do |column| %>
+      <%= (row+65).chr %><%= column %>
+    <% end %>
+  </p>
+  <% end %>
 </div>
