@@ -1,0 +1,18 @@
+table, th, td {
+  border: 2px solid black;
+}
+table {
+  background-color: #E6CC80;
+}
+#description_cell {
+  background-color: grey;
+}
+#board_div {
+  width: 50%;
+  border: 1px dashed red;
+  float: left;
+}
+#controls {
+  border: 1px dashed blue;
+  float: left;
+}

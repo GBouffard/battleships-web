@@ -9,6 +9,7 @@ require_relative 'water'
 
 
 class Battleships < Sinatra::Base
+  set :public, Proc.new { File.join(root, "..", "public") }
   set :views, Proc.new { File.join(root, "..", "views") }
 
   get '/' do

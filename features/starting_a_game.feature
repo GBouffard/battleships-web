@@ -8,5 +8,3 @@ Feature: Starting the game
     Then I should see "What's your name?"
     When I press "Start Game"
     Then I should see "Hello"
-
-

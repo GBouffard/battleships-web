@@ -3,6 +3,7 @@ class Cell
 
   def initialize
     @hit = false
+    @content = "W"
   end
 
   def hit
