@@ -9,7 +9,7 @@ class Battleships < Sinatra::Base
 
   get '/game' do
     @visitor = params[:player]
-    erb :index
+    erb :game
   end
 
   # start the server if ruby file executed directly
