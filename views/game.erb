@@ -1,7 +1,11 @@
 <link rel="stylesheet" type="text/css" href="/game_style.css">
+
+
 <div id = "board_div">
   Hello <%= @player.name %> here's your board:
+
   <table>
+
   <% (0..@board.side_length).each do |row| %>
   <tr>
     <% (0..@board.side_length).each do |column| %>
@@ -23,8 +27,8 @@
       <% end %>
     <% end %>
   </tr>
-
   <% end %>
+  
   </table>
 </div>
 

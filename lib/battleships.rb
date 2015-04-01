@@ -5,10 +5,13 @@ require_relative 'cell'
 require_relative 'game'
 require_relative 'ship'
 require_relative 'water'
+require 'byebug'
 
 
 
 class Battleships < Sinatra::Base
+  enable :sessions
+
   set :public, Proc.new { File.join(root, "..", "public") }
   set :views, Proc.new { File.join(root, "..", "views") }
 
@@ -20,17 +23,20 @@ class Battleships < Sinatra::Base
     puts session.inspect
     @visitor = params[:player]
     @player = Player.new @visitor
-    @board = Board.new({size: 25, cell: Cell, number_of_pieces: 3})
+    @board = session[:board] || Board.new({size: 25, cell: Cell, number_of_pieces: 3})
     session[:player] = @visitor
+    session[:board] = @board
     @ship = Ship.new({size: 3})
     erb :game
   end
 
   get '/hit' do
     @coordinate_to_hit = params[:coordinate_to_hit]
-    @board = Board.new({size: 25, cell: Cell, number_of_pieces: 3})
+    @player = Player.new @visitor
+    byebug
+    @board = session[:board]
     @board.hit_coordinate(@coordinate_to_hit) # Method hit takes a Cell...
-    erb :hit
+    erb :game
   end
 
   # start the server if ruby file executed directly
