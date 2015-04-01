@@ -5,7 +5,6 @@ require_relative 'cell'
 require_relative 'game'
 require_relative 'ship'
 require_relative 'water'
-require 'byebug'
 
 
 
