@@ -1,6 +1,5 @@
 <link rel="stylesheet" type="text/css" href="/game_style.css">
 <div id = "board_div">
-  Hello <%= @player.name %> here's your board:
   <table>
   <% (0..@board.side_length).each do |row| %>
   <tr>
@@ -15,9 +14,10 @@
         </td>
       <% else %>
         <td>
-          <a href="/hit">
-            <%= "hit" %>
-          </a>
+          <form action='/hit' method='post'>
+            <input type="hidden" name="coordinate_to_hit" value="<%= ((row+64).chr + column.to_s) %>">
+            <input type="submit" value=<%= @board.grid[((row+64).chr + column.to_s).to_sym].content %>>
+          </form>
         </td>
       <% end %>
     <% end %>

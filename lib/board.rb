@@ -61,6 +61,11 @@ class Board
     grid[cell].content.hit
   end
 
+  def hit_coordinate coordinate
+    # Error message
+    grid[coordinate.to_sym].hit
+  end
+
   def all_ships_sunk?
     ships.all?(&:sunk?)
   end

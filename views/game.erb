@@ -15,9 +15,10 @@
         </td>
       <% else %>
         <td>
-          <a href="/hit">
-            <%= @board.grid[((row+64).chr + column.to_s).to_sym].content %>
-          </a>
+          <form action='/hit'>
+            <input type="hidden" name="coordinate_to_hit" value="<%= ((row+64).chr + column.to_s) %>">
+            <input type="submit" value=<%= @board.grid[((row+64).chr + column.to_s).to_sym].content %>>
+          </form>
         </td>
       <% end %>
     <% end %>
